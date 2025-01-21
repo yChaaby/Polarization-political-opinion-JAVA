@@ -3,6 +3,15 @@
 ## Overview
 This project is a distributed system where users (agents) interact and exchange opinions on various topics. The system models user behaviors, including opinion updates, critical thinking, broadcasting by influencers, proposing new topics, consensus finding, and measuring polarization.
 
+## Team
+
+Our team is composed of passionate students:
+
+- **Youssef**: Team Lead and System Architect passionate about Software Engineering and Data-driven solutions.
+- **Mazigh**: Developer and passionate about Data Engineering and Analysis.
+- **Koceila**: Developer and passionate Data Science & Consulting.
+
+We work collaboratively to ensure the success of this project, leveraging diverse skills and expertise.
 ## Features
 
 ### Opinion Update Formula
