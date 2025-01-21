@@ -8,27 +8,27 @@ This project is a distributed system where users (agents) interact and exchange 
 ### Opinion Update Formula
 When agent **B** receives a message from agent **A**, **B**'s opinion on a topic **T** is updated using the following formula:
 
-**O<sub>B</sub>'(T) = O<sub>B</sub>(T) + (O<sub>A</sub>(T) - O<sub>B</sub>(T)) × i<sub>AB</sub>**
+$O_B'(T) = O_B(T) + (O_A(T) - O_B(T)) \times i_{AB}$
 
-- **O<sub>B</sub>'(T)**: New opinion of **B** on topic **T**.
-- **O<sub>B</sub>(T)**: Current opinion of **B** on topic **T**.
-- **O<sub>A</sub>(T)**: Opinion of **A** on topic **T**.
-- **i<sub>AB</sub>**: Degree of influence of **A** on **B**, where **i<sub>AB</sub> ∈ (0, 1]**.
+- $O_B'(T)$: New opinion of **B** on topic **T**.
+- $O_B(T)$: Current opinion of **B** on topic **T**.
+- $O_A(T)$: Opinion of **A** on topic **T**.
+- $i_{AB}$: Degree of influence of **A** on **B**, where $i_{AB} \in (0, 1]$.
 
 ### Consensus Formula
 A Consensus Finder helps two agents, **A** and **B**, reach a consensus on a topic **T**. Their opinions are updated to the average:
 
-**O<sub>new</sub>(T) = (O<sub>A</sub>(T) + O<sub>B</sub>(T)) / 2**
+$O_{new}(T) = \frac{O_A(T) + O_B(T)}{2}$
 
 ### Polarization Formula
 The system's polarization on a topic **T** is measured using the Esteban and Ray formula:
 
-**P = K ∑<sub>i ∈ I</sub> ∑<sub>j ∈ I</sub> π<sub>i</sub><sup>1+α</sup> π<sub>j</sub> |m<sub>i</sub> - m<sub>j</sub>|**
+$P = K \sum_{i \in I} \sum_{j \in I} \pi_i^{1+\alpha} \pi_j |m_i - m_j|$
 
-- **K > 0**: Normalization constant.
-- **π<sub>i</sub>**: Number of agents in interval **i**.
-- **m<sub>i</sub>**: Midpoint of interval **i**.
-- **α = 1.6**: Parameter controlling sensitivity to polarization.
+- $K > 0$: Normalization constant.
+- $\pi_i$: Number of agents in interval $i$.
+- $m_i$: Midpoint of interval $i$.
+- $\alpha = 1.6$: Parameter controlling sensitivity to polarization.
 
 ## Agent Roles
 - **Critical Thinkers (CT):** Validate opinions by requesting evidence before updating their opinions. They do not update opinions based on messages from influencers.
@@ -42,13 +42,23 @@ The system is built using Java RMI (Remote Method Invocation) with a client-serv
 
 ## Non-Functional Requirements
 - Random numbers are used to simulate behavior, such as initial opinions, degrees of influence, and evidence validation.
-- Java Logging is implemented to track events, including message arrivals, opinion updates, and evidence validation failures.
+- ~~Java Logging is implemented to track events, including message arrivals, opinion updates, and evidence validation failures.~~
 - Thread synchronization is carefully managed to ensure proper communication and avoid conflicts.
 
 ## Usage
 Run agents with the following commands:
-- Proposer: `java Proposer --topic="are vaccines good?"`
-- Polarimeter: `java Polarimeter --delay=5000`
+- Proposer:
+    ```bash
+  cd ./Client/src
+  java Proposer
+- Polarimeter:
+    ```bash
+  cd ./Client/src
+  java Polarimeter
+- Server:
+  ```bash
+  cd ./Server/src
+  java Main #(you can rename it as needed; "server" would be a very good choice)
 
 ## License
-This project is licensed under the MIT License.
+None ...
